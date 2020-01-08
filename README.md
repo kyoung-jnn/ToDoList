@@ -1,2 +1,2 @@
 # ToDoList_JavaScript
- ToDoList made with JS
+ToDoList made with JS
