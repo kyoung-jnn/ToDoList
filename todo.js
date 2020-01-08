@@ -30,20 +30,31 @@ function delBtnClickHandler(event){
     saveToDoList();
 }
 
+function comBtnClickHandler(event){
+    const text = event.target.parentNode.querySelector("span");
+    text.style.textDecoration="line-through";
+}
+
 function makeList(input){
     const li = document.createElement("li");
     const span = document.createElement("span");
     const delBtn = document.createElement("button");
+    const comBtn = document.createElement("button");
+
     const newId = toDoArray.length +1;
     span.innerText = input;
-    delBtn.innerText = "Delete";
+    comBtn.innerText = String.fromCodePoint(0x2714);
+    comBtn.id = "comBtn";
+    delBtn.innerText = String.fromCodePoint(0x2716);
+    delBtn.id = "delBtn";
     delBtn.addEventListener("click",delBtnClickHandler);
+    comBtn.addEventListener("click",comBtnClickHandler);
 
     li.appendChild(span);
+    li.appendChild(comBtn);
     li.appendChild(delBtn);
-    li.id = newId;
     list.appendChild(li);
-
+    li.id = newId;
     const Obj = {
         'id': newId, //id값을 이용하여 삭제하기
         'text': input
@@ -61,7 +72,7 @@ function submitHandler(event){
 }
 
 function init(){
-    loadToDoList();
+    loadToDoList(); //새로고침시 데이터 불러오기
     toDoInput.addEventListener("submit",submitHandler);
 }
 

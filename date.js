@@ -11,7 +11,7 @@ function getDate(){
     var mm = today.getMonth()+1;
     var yyyy = today.getFullYear();
 
-    week.innerText = `${weekToday}  ${yyyy}.${mm}.${dd}`;
+    week.innerText = `${yyyy}.${mm}.${dd} ${weekToday}  `;
 }
 
 function init(){
